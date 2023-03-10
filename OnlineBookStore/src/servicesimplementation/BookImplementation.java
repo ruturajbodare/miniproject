@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 import Book.BookInfo;
 import Services.BookServices;
+import bean.Employee;
+import bean.Record;
 
 public class BookImplementation implements BookServices {
 
@@ -35,82 +37,19 @@ public class BookImplementation implements BookServices {
 		 }
 		
 	
+		
+
 		@Override
-		public void () {
-			// TODO Auto-generated method stub
-			Scanner sc=new Scanner(System.in);
-			 System.out.println("enter the bookid:");
-			  int bookid=sc.nextInt();
-			  System.out.println("enter the book name:");
-
-			  String bookname=sc.next();
-			  System.out.println("enter the bookprice:");
-
-			  float bookprice=sc.nextFloat();
-			  System.out.println("enter the booktype:");
-
-			  String booktype=sc.next();
-			
-			  BookInfo e2=new BookInfo(bookname,bookprice,booktype);
-			  list.add(e2);
-	        
-			
-		}
-		@Override
-		public void updatebook() throws NumberFormatException, IOException {
-			// TODO Auto-generated method stub
-			Scanner sc=new Scanner(System.in);
-			 System.out.println("enter the bookid");
-			  int bookid=sc.nextInt();
-			  int flag=0,index=0;
-			  BookInfo s=null;
-			  for(BookInfo b:list)
-			  {
-				  if(b.getBookid()==bookid)
-				  {
-					flag=1;
-					index=list.indexOf(b);
-					s=b;
-					System.out.println(s);
-					break;
-				  }
-			  }
-			  if(flag==1) {
-			  System.out.println("enter the bookname");
-
-			  String bookname=sc.next();
-			  System.out.println("enter the bookprice");
-
-			  float bookprice=sc.nextFloat();
-			  System.out.println("enter the book type");
-
-			  String booktype=sc.next();
-			  s.setBookname(bookname);
-			  s.setBookprice(bookprice);
-			  s.setBooktype(booktype);
-			  list.set(index, s);
-			  System.out.println("===========================================================");
-			  }
-			  else
-			  {
-				  System.out.println("id does not exist!!"); 
-			  }
-	       
-			  System.out.println("===========================================================");
-			
-			
-		}
-		@Override
-		public void deletebook() throws NumberFormatException, IOException {
+		public void buybook() throws NumberFormatException, IOException {
 			// TODO Auto-generated method stub
 			Scanner sc=new Scanner(System.in);
 			System.out.println("enter the  book id");
-			  int bookid=sc.nextInt();
+			  int bookname=sc.nextInt();
 			  int flag=0,index=0;
 			  BookInfo s=null;
 			  for(BookInfo b:list)
 			  {
-				  if(bookid==b.getBookid())
+				  if(bookname==b.getBookname())
 				  {
 					flag=1;
 					index=list.indexOf(b);
@@ -130,25 +69,6 @@ public class BookImplementation implements BookServices {
 				  list.remove(s);
 				  System.out.println("book record deleted successfully!!"); 
 			  }
-		}
-		@Override
-		public void viewallbooks() {
-			// TODO Auto-generated method stub
-			if(list.size()==0)
-			{	
-					System.out.println("No record found!!");	
-			}
-			for(BookInfo b1:list)
-			{
-				System.out.println(b1);
-			}	
-			
-		}
-
-
-		@Override
-		public void buybook() throws NumberFormatException, IOException {
-			// TODO Auto-generated method stub
 			
 			
 		}
@@ -157,13 +77,47 @@ public class BookImplementation implements BookServices {
 		@Override
 		public void sellbook() throws NumberFormatException, IOException {
 			// TODO Auto-generated method stub
-			
-		}
+			Scanner sc=new Scanner(System.in);
+			  System.out.println("enter the book name:");
 
+			  String bookname=sc.next();
+			  System.out.println("enter the bookprice:");
+
+			  float bookprice=sc.nextFloat();
+			  System.out.println("enter the booktype:");
+
+			  String booktype=sc.next();
+			
+			  BookInfo e2=new BookInfo(bookname,bookprice,booktype);
+			  list.add(e2);
+	        System.out.println("thanks u for dealing with us");
+	        System.out.println("please conform your address,we will  contact with in 3 days");
+	        
+		}
 
 		@Override
 		public void personaldetails() {
 			// TODO Auto-generated method stub
+			
+		}
+
+
+
+
+		@Override
+		public void viewallbooks() {
+			// TODO Auto-generated method stub
+			if(list.isEmpty())
+			{
+			System.out.println("list has no records");	
+			}
+				for(BookInfo record:list)
+				{
+					System.out.println(record.toString());
+				}
+				
+				
+			
 			
 		}
 	}  

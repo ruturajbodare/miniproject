@@ -30,16 +30,16 @@ public class BookMain {
 	    	  switch(choice)
 	    	  {
 	    	  case 1:
-	    		  e.findAllbook();
+	    		  e.viewallbooks();
 	    		  break;
 	    	  case 2:
-	    		  e.addbook();
+	    		  e.buybook();
 	    		  break;
 	    	  case 3:
-	    		  e.updatebook();
+	    		  e.sellbook();;
 	    		  break;
 	    	  case 4:
-	    		  e.deletebook();
+	    		  e.personaldetails();
 	    		  
 	    	  }
 	    	  System.out.println("do you want to continue");
